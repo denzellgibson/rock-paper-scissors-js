@@ -18,7 +18,7 @@ function getComputerChoice() {
 }
 
 function outputResult(userChoice, computerChoice, result) {
-    alert(userChoice + " vs. " + computerChoice + ". User " + result + "!");
+    alert(userChoice + " vs. " + computerChoice + ". User " + result + "! \n User Score: " + humanScore + "\n Computer Score: " + computerScore);
 }
 
 function playerRound(userChoice, computerChoice) {
@@ -26,21 +26,27 @@ function playerRound(userChoice, computerChoice) {
         outputResult(userChoice, computerChoice, "ties");
     }
     else if (userChoice == "rock" && computerChoice == "paper") {
+        computerScore++;
         outputResult(userChoice, computerChoice, "loses");
     }
     else if (userChoice == 'rock' && computerChoice == 'scissors') {
+        humanScore++;
         outputResult(userChoice, computerChoice, 'wins');
     }
     else if (userChoice == 'paper' && computerChoice == 'rock') {
+        humanScore++;
         outputResult(userChoice, computerChoice, 'wins');
     }
     else if (userChoice == 'paper' && computerChoice == 'scissors') {
+        computerScore++;
         outputResult(userChoice, computerChoice, 'loses');
     }
     else if (userChoice == 'scissors' && computerChoice == 'rock') {
+        computerScore++;
         outputResult(userChoice, computerChoice, 'loses');
     }
     else if (userChoice == 'scissors' && computerChoice == 'paper') {
+        humanScore++;
         outputResult(userChoice, computerChoice, 'wins');
     }
     else {
@@ -48,6 +54,7 @@ function playerRound(userChoice, computerChoice) {
     }
 }
 
+let humanScore = 0, computerScore = 0;
 let userChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
 let computerChoice = getComputerChoice();
 
