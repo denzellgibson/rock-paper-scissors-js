@@ -66,13 +66,3 @@ for (i = 1; i <= numGames; i++) {
     playerRound(userChoice, computerChoice);
 }
 
-
-
-
-
-
-
-
-
-
-
