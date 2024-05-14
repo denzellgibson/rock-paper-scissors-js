@@ -54,11 +54,22 @@ function playerRound(userChoice, computerChoice) {
     }
 }
 
+let userChoice, computerChoice;
 let humanScore = 0, computerScore = 0;
-let userChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
-let computerChoice = getComputerChoice();
+let numGames = 0;
 
-playerRound(userChoice, computerChoice);
+numGames = parseInt(prompt('How many games do you want to play?'));
+
+for (i = 1; i <= numGames; i++) {
+    userChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
+    computerChoice = getComputerChoice();
+    playerRound(userChoice, computerChoice);
+}
+
+
+
+
+
 
 
 
