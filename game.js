@@ -58,6 +58,9 @@ function playerRound(userChoice) {
         playerScore++;
         updateResultsDisplay('wins');
     }
+
+    playerChoiceLabel.innerHTML = 'Player Choice: ' + userChoice;
+    computerChoiceLabel.innerHTML = 'Computer Choice: ' + computerChoice;
 }
 
 function getComputerChoice() {
