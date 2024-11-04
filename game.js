@@ -12,6 +12,7 @@ const computerScoreLabel = document.querySelector('#ComputerScoreLabel');
 const RockButton = document.querySelector("#RockButton");
 const PaperButton = document.querySelector("#PaperButton");
 const ScissorsButton = document.querySelector("#ScissorsButton");
+const gameWinnerLabel = document.querySelector('#GameWinnerLabel');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -27,6 +28,10 @@ ScissorsButton.addEventListener("click", (e) => {
 });
 
 function playerRound(userChoice) {
+    if (playerScore == 5 || computerScore == 5) {
+        return;
+    }
+    
     let computerChoice = getComputerChoice();
     console.log('Computer Choice: ' + computerChoice);
     console.log('Player Choice: ' + userChoice);
@@ -80,6 +85,17 @@ function updateResultsDisplay(outcome) {
     playerScoreLabel.innerHTML = 'Player Score: ' + playerScore;
     computerScoreLabel.innerHTML = 'Computer Score: ' + computerScore;
     roundResultLabel.innerHTML = 'Round Result: ' + outcome;
+    if (playerScore == 5 || computerScore == 5) {
+        if (playerScore > computerScore) {
+            gameWinnerLabel.innerHTML = 'Game Winner: Player';
+        }
+        else if (computerScore > playerScore) {
+            gameWinnerLabel.innerHTML = 'Game Winner: Computer';
+        }
+        else {
+            gameWinnerLabel.innerHTML = 'Game ends in a tie.';
+        }
+    }
 }
 
 
